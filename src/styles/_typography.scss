@@ -1,0 +1,271 @@
+// Typography system for TROVA website
+
+// Font imports
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+// Base typography
+html {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  color: var(--text-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  @include heading-1();
+}
+
+h2 {
+  @include heading-2();
+}
+
+h3 {
+  @include heading-3();
+}
+
+h4 {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-white);
+  margin-bottom: var(--spacing-sm);
+}
+
+h5 {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-white);
+  margin-bottom: var(--spacing-xs);
+}
+
+h6 {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+// Body text
+p {
+  @include body-text();
+  margin: 0 0 var(--spacing-md) 0;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Text utilities
+.text-small {
+  @include accent-text();
+}
+
+.text-light {
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+.text-white {
+  color: var(--text-white);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Font weight utilities
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+// Links
+a {
+  color: var(--primary-electric);
+  text-decoration: none;
+  @include smooth-transition();
+  
+  &:hover {
+    color: var(--accent-neon);
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol {
+  margin: 0 0 var(--spacing-md) 0;
+  padding-left: var(--spacing-lg);
+  
+  li {
+    @include body-text();
+    margin-bottom: var(--spacing-xs);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Blockquotes
+blockquote {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-left: 4px solid var(--primary-electric);
+  background: var(--glass-bg);
+  border-radius: var(--radius-md);
+  
+  p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 0;
+  }
+}
+
+// Code
+code {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  background: var(--glass-bg);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+  color: var(--accent-neon);
+}
+
+pre {
+  background: var(--glass-bg);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin: var(--spacing-md) 0;
+  
+  code {
+    background: none;
+    padding: 0;
+    color: var(--text-white);
+  }
+}
+
+// Special typography components
+.hero-title {
+  @include heading-1();
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  
+  @include mobile {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+.hero-subtitle {
+  @include body-text();
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  
+  @include mobile {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+.section-title {
+  @include heading-2();
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -var(--spacing-sm);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-electric);
+    border-radius: var(--radius-sm);
+  }
+}
+
+.section-subtitle {
+  @include body-text();
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+  opacity: 0.9;
+}
+
+.card-title {
+  @include heading-3();
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-description {
+  @include accent-text();
+  margin-bottom: 0;
+}
+
+.stats-number {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-electric);
+  line-height: 1;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stats-label {
+  @include accent-text();
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+// Responsive typography adjustments
+@include mobile {
+  html {
+    font-size: 14px;
+  }
+}
+
+@include tablet {
+  html {
+    font-size: 15px;
+  }
+}
+
+@include large {
+  html {
+    font-size: 17px;
+  }
+}

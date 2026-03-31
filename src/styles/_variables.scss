@@ -1,0 +1,99 @@
+// TROVA Brand Color System
+:root {
+  // Primary brand colors
+  --primary-navy: #0A1F44;
+  --primary-electric: #1E5BFF;
+  --accent-neon: #00D4FF;
+  --text-white: #FFFFFF;
+  --text-light: #B0C4DE;
+  
+  // Gradient variables
+  --gradient-start: #0A1F44;
+  --gradient-mid: #1A2F54;
+  --gradient-end: #0F2947;
+  
+  // Shadow and glow effects
+  --shadow-soft: rgba(30, 91, 255, 0.1);
+  --shadow-medium: rgba(30, 91, 255, 0.2);
+  --shadow-strong: rgba(30, 91, 255, 0.3);
+  --glow-neon: rgba(0, 212, 255, 0.3);
+  --glow-electric: rgba(30, 91, 255, 0.4);
+  
+  // Glassmorphism
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-backdrop: rgba(10, 31, 68, 0.8);
+  
+  // Typography
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  // Spacing system
+  --spacing-xs: 0.2rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.2rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 1.8rem;
+  --spacing-3xl: 2rem;
+  
+  // Border radius
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  
+  // Transitions
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Z-index scale
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+// SCSS variables for use in mixins
+$primary-navy: var(--primary-navy);
+$primary-electric: var(--primary-electric);
+$accent-neon: var(--accent-neon);
+$text-white: var(--text-white);
+$text-light: var(--text-light);
+
+$gradient-start: var(--gradient-start);
+$gradient-mid: var(--gradient-mid);
+$gradient-end: var(--gradient-end);
+
+$shadow-soft: var(--shadow-soft);
+$shadow-medium: var(--shadow-medium);
+$shadow-strong: var(--shadow-strong);
+$glow-neon: var(--glow-neon);
+$glow-electric: var(--glow-electric);
+
+$glass-bg: var(--glass-bg);
+$glass-border: var(--glass-border);
+$glass-backdrop: var(--glass-backdrop);
+
+// Breakpoints
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1440px;
+$breakpoint-xlarge: 1920px;
+
+// Container max widths
+$container-sm: 640px;
+$container-md: 768px;
+$container-lg: 1024px;
+$container-xl: 1280px;
+$container-2xl: 1536px;

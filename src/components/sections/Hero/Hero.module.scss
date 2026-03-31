@@ -1,0 +1,360 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/animations';
+
+.hero {
+  min-height: 85vh;
+  @include gradient-bg(135deg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 25% 25%, rgba(30, 91, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(10, 31, 68, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--spacing-2xl) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  
+  @include mobile {
+    padding: var(--spacing-xl) 0;
+  }
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-neon);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+  
+  &--1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  &--2 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 1s;
+  }
+  
+  &--3 {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 2s;
+  }
+  
+  &--4 {
+    top: 40%;
+    right: 25%;
+    animation-delay: 3s;
+  }
+  
+  &--5 {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 4s;
+  }
+}
+
+.hero__main {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  @include mobile {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.hero__title {
+  @include heading-1();
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.1;
+  font-weight: var(--font-weight-bold);
+  font-size: 48px;
+  @include mobile {
+    margin-bottom: var(--spacing-lg);
+    font-size: 34px;
+  }
+}
+
+.hero__title--accent {
+  background: linear-gradient(135deg, var(--primary-electric), var(--accent-neon));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.hero__subtitle {
+  @include body-text();
+  max-width: 700px;
+  margin: 0 auto var(--spacing-md);
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.95;
+  
+  @include mobile {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+.hero__description {
+  @include accent-text();
+  max-width: 500px;
+  margin: 0 auto var(--spacing-xl);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  opacity: 0.8;
+  
+  @include mobile {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+.hero__actions {
+  @include flex-center();
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+}
+
+.hero__icons {
+  @include flex-center();
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-3xl);
+  
+  @include tablet {
+    gap: var(--spacing-xl);
+  }
+  
+  @include mobile {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+  }
+}
+
+.hero__icon {
+  @include flex-column-center();
+  gap: var(--spacing-sm);
+  text-align: center;
+  opacity: 0.8;
+  @include smooth-transition();
+  
+  &:hover {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+.icon__wrapper {
+  @include flex-center();
+  width: 60px;
+  height:60px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  color: var(--text-white       );
+  @include smooth-transition();
+  
+  @include mobile {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .hero__icon:hover & {
+    background: var(--primary-electric);
+    color: var(--text-white);
+    @include neon-glow();
+    transform: scale(1.05);
+  }
+  
+  svg {
+    width: 32px;
+    height: 32px;
+    
+    @include mobile {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.icon__label {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  @include mobile {
+    font-size: 0.8rem;
+  }
+}
+
+.hero__wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  overflow: hidden;
+  line-height: 0;
+  color: var(--gradient-start);
+  
+  svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 120px;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .hero__title {
+    font-size: 34px;
+  }
+  
+  .hero__subtitle {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+  }
+  
+  .hero__description {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+  
+  .hero__actions {
+    gap: var(--spacing-md);
+  }
+  
+  .hero__wave {
+    height: 80px;
+    
+    svg {
+      height: 80px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 85vh;
+  }
+  
+  .hero__content {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .hero__main {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .hero__wave {
+    height: 60px;
+    
+    svg {
+      height: 60px;
+    }
+  }
+}
+
+// Animation for hero elements
+.hero__title {
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.hero__subtitle {
+  animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.hero__description {
+  animation: slideUp 0.8s ease-out 0.6s both;
+}
+
+.hero__actions {
+  animation: slideUp 0.8s ease-out 0.8s both;
+}
+
+.hero__icon {
+  animation: fadeIn 0.6s ease-out 1s both;
+  
+  &:nth-child(1) { animation-delay: 1s; }
+  &:nth-child(2) { animation-delay: 1.2s; }
+  &:nth-child(3) { animation-delay: 1.4s; }
+}
+
+// Hover effects for buttons in hero
+.hero__actions .btn {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  &:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+}
